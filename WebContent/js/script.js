@@ -2,11 +2,24 @@
 function moreUserTextBox() {
 	users++;
 	document.getElementById('users').value = users;
-
-	var data = document.getElementById('userNameDiv').innerHTML;
-	var appendData = '<div class="users"><div class="left">User ' + users + '</div><div class="right"><input type="text" id="user' + users + '" name="user' + users + '" value="user' + users + '"></div><div class="clear"></div></div>';
 	
-	document.getElementById('userNameDiv').innerHTML = data + appendData;
+	var container = document.getElementById('userNameDiv');
+	var appendData = '<div class="left">User ' + users + '</div><div class="right"><input type="text" id="user' + users + '" name="user' + users + '" value="user' + users + '"></div><div class="clear"></div>';
+	
+	//----- FUTURE CODE FOR PASSING AS LIST -----
+	//var appendData = '<div class="left">User ' + users + '</div><div class="right"><input type="text" id="user' + users + '" name="userNames[]" value="user' + users + '"></div><div class="clear"></div>';
+	
+	var div = document.createElement('div');
+	div.className='users';
+	//div.id="userContainer"+users;
+	div.innerHTML = appendData
+	
+	container.appendChild(div);
+	
+	//----- PREVIOUS CODE FOR LOSSY DOM VALUES -----
+	//var data = document.getElementById('userNameDiv').innerHTML;
+	//var appendData = '<div class="users"><div class="left">User ' + users + '</div><div class="right"><input type="text" id="user' + users + '" name="user' + users + '" value="user' + users + '"></div><div class="clear"></div></div>';
+	//document.getElementById('userNameDiv').innerHTML = data + appendData;
 }
 
 
